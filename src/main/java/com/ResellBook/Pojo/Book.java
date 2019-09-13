@@ -1,11 +1,11 @@
 package com.ResellBook.Pojo;
 
 public class Book {
-    public String bookID;
-    public String bookName;
-    public String publishHouse;
-    public String editor;
-    public String prise;
+    private String bookID;
+    private String bookName;
+    private String publishHouse;
+    private String editor;
+    private String prise;
 
     public Book(String bookID, String bookName, String publishHouse, String editor, String prise) {
         this.bookID = bookID;

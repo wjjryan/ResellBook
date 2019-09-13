@@ -2,12 +2,12 @@ package com.ResellBook.Pojo;
 
 
 public class Order {
-    public int orderID;
-    public String sellerNum;
-    public int orederStatus;
-    public String bookID;
-    public int reward;
-    public String remark;
+    private int orderID;
+    private String sellerNum;
+    private int orederStatus;
+    private String bookID;
+    private int reward;
+    private String remark;
 
     public Order( String sellerNum, int orederStatus, String bookID, int reward, String remark) {
         this.sellerNum = sellerNum;

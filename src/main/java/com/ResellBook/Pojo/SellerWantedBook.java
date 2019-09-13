@@ -2,8 +2,8 @@ package com.ResellBook.Pojo;
 
 
 public class SellerWantedBook {
-    public String studentNum;
-    public String want;
+    private String studentNum;
+    private String want;
 
     public SellerWantedBook(String studentNum, String want) {
         this.studentNum = studentNum;

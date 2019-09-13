@@ -2,11 +2,11 @@ package com.ResellBook.Pojo;
 
 
 public class News {
-    public String newsID;
-    public String orderID;
-    public String buyerName;
-    public String sellerName;
-    public int newsStatus;
+    private String newsID;
+    private String orderID;
+    private String buyerName;
+    private String sellerName;
+    private int newsStatus;
 
     public News(String orderID, String buyerName, String sellerName, int newsStatus) {
         this.orderID = orderID;
