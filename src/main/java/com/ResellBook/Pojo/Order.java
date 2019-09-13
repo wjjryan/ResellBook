@@ -1,7 +1,7 @@
 package main.java.Pojo;
 
 public class Order {
-    public String orderID;
+    public int orderID;
     public String sellerNum;
     public int orederStatus;
     public String bookID;
@@ -16,7 +16,7 @@ public class Order {
         this.remark = remark;
     }
 
-    public String getOrderID() {
+    public int getOrderID() {
         return orderID;
     }
 
