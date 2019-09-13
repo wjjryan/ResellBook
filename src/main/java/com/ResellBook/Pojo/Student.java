@@ -1,13 +1,13 @@
-package main.java.Pojo;
+package com.ResellBook.Pojo;
 
 public class Student {
-    public String studentName;
-    public String studentNum;
-    public String studentPasswd;
-    public String college;
-    public String grade;
-    public String clazz;
-    public String tel;
+    private String studentName;
+    private String studentNum;
+    private String studentPasswd;
+    private String college;
+    private String grade;
+    private String clazz;
+    private String tel;
 
     public String getStudentName() {
         return studentName;

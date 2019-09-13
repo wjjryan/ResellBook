@@ -1,4 +1,5 @@
-package main.java.Pojo;
+package com.ResellBook.Pojo;
+
 
 public class News {
     public String newsID;

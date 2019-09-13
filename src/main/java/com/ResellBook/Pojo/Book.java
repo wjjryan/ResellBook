@@ -1,4 +1,4 @@
-package main.java.Pojo;
+package com.ResellBook.Pojo;
 
 public class Book {
     public String bookID;
