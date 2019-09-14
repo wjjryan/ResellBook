@@ -14,5 +14,10 @@
   <form action="/register">
     <input type="submit">
   </form>
+  <button id="test">接口测试</button>
+
+  <!--导入所需的js包及文件-->
+  <script type="text/javascript" src="/static/jquery.js"></script>
+  <script type="text/javascript" src="/static/test.js"></script>
   </body>
 </html>

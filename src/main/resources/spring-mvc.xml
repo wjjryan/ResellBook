@@ -20,6 +20,9 @@
       http://www.springframework.org/schema/aop
       http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
+    <!-- 扫描业务逻辑包-->
+    <context:component-scan base-package="com.ResellBook.controller"/>
+
     <!-- 配置Viewer-->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"></property>
@@ -37,7 +40,6 @@
 
     <!-- 配置SpringMvc注解 -->
     <mvc:annotation-driven />
-    <!-- 扫描业务逻辑包-->
-    <context:component-scan base-package="com.ResellBook.controller"/>
+
 
 </beans>

@@ -2,7 +2,9 @@ package com.ResellBook.Service;
 
 import com.ResellBook.Pojo.Student;
 import java.util.List;
+import java.util.Map;
 
 public interface StudentService {
-    public List<Student> getStudentService(int id);
+     List<Student> getStudentService(String num);
+     Map<String,Object> registerStudent(Student student);
 }

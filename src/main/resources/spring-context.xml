@@ -15,18 +15,19 @@ http://www.springframework.org/schema/mvc http://www.springframework.org/schema/
 http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
 http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
+
     <!--配置service的包-->
     <context:component-scan base-package="com.ResellBook.ServiceImp"/>
 
     <!--引入数据库属性文件-->
-    <context:property-placeholder location="database.properties" />
+    <context:property-placeholder location="classpath:database.properties" />
 
     <!--配置数据库属性-->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-        <property name="driverClassName" value="${driverName}"/>
-        <property name="url" value="${url}"/>
-        <property name="username" value="${user}"/>
-        <property name="password" value="${password}"/>
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
     </bean>
 
     <!--事务管理transaction-->
@@ -37,8 +38,6 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
     <!-- SqlSessionFactory -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <!--加载mybatis配置文件-->
-        <property name="configLocation" value="classpath:mybatis-config.xml"/>
         <!--加载映射的xml文件-->
         <property name="mapperLocations" value="classpath:Mapper/*.xml"/>
     </bean>
