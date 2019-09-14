@@ -19,12 +19,7 @@
       http://www.springframework.org/schema/task/spring-task-3.2.xsd
       http://www.springframework.org/schema/aop
       http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
-      
-    <!-- 扫描业务逻辑包-->
-    <context:component-scan base-package="com.ResellBook.controller"/>
-    <context:component-scan base-package="com.ResellBook.ServiceImp"/>
-    
-    
+
     <!-- 配置Viewer-->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"></property>
@@ -37,38 +32,12 @@
         <property name="defaultEncoding" value="utf-8"></property>
     </bean>
 
-    <!--引入数据库属性文件-->
-    <context:property-placeholder location="database.properties" />
-
-    <!--配置数据库属性-->
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-        <property name="driverClassName" value="${driverName}"/>
-        <property name="url" value="${url}"/>
-        <property name="username" value="${user}"/>
-        <property name="password" value="${password}"/>
-    </bean>
-
-    <!--事务管理transaction-->
-    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
-
-    <!-- SqlSessionFactory -->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource" />
-        <property name="mapperLocations" value="Mapper"/>
-    </bean>
-
-    <!--指定mapper的文件路径-->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.ResellBook.Dao" />
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
-    </bean>
-
     <!-- 可通过注解控制事务 -->
     <tx:annotation-driven />
 
     <!-- 配置SpringMvc注解 -->
     <mvc:annotation-driven />
+    <!-- 扫描业务逻辑包-->
+    <context:component-scan base-package="com.ResellBook.controller"/>
 
 </beans>
