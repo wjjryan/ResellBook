@@ -7,8 +7,8 @@ test.onclick= function () {
         dataType:'json',
         data:{
         },
-        success:function() {
-
+        success:function(data) {
+            alert(data.message);
         }
     })
 }

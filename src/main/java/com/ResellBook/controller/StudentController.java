@@ -18,6 +18,8 @@ import javax.annotation.Resource;
 @Controller
 public class StudentController {
     @Resource StudentService studentService;
+
+    @ResponseBody
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public Map<String,Object> register(){
         //模拟前端传输来的数据
