@@ -37,7 +37,9 @@ public class StudentController {
     public void logout(){}
 
     @RequestMapping(value = "/sendMessage")
-    public void sendMessage(){}
+    public void sendMessage(){
+
+    }
 
 
 }
