@@ -9,9 +9,10 @@ public class Orders {
     private int reward;
     private String remark;
 
-    public Orders(String sellerNum, int orederStatus, String bookID, int reward, String remark) {
+    public Orders(Integer orderID, String sellerNum, Integer orderStatus, String bookID, Integer reward, String remark) {
+        this.orderID = orderID;
         this.sellerNum = sellerNum;
-        this.orderStatus = orederStatus;
+        this.orderStatus = orderStatus;
         this.bookID = bookID;
         this.reward = reward;
         this.remark = remark;

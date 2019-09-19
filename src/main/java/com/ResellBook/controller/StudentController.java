@@ -55,10 +55,8 @@ public class StudentController {
     BookDao bookDao;
     @ResponseBody
     @RequestMapping(value = "/test")
-    public List<Book> test(){
-        List<Book> student = new ArrayList<>();
-        Book book=bookDao.getBook("9787115461025");
-        student.add(book);
+    public List<Orders> test(){
+        List<Orders> student = orderDao.getStatusOrder(1);
         return student;
     }
 

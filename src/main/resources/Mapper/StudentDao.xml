@@ -11,7 +11,7 @@
     studentNum=#{num}
   </select>
 
-    <select id="getStudent" resultType="com.ResellBook.Pojo.Student" parameterType="java.lang.String" >
+    <select id="getStudent" resultType="com.ResellBook.Pojo.Student" parameterType="java.lang.String">
     SELECT *
     FROM
     student
@@ -37,3 +37,4 @@
         #{tel})
     </insert>
 </mapper>
+
