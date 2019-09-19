@@ -11,6 +11,13 @@
     studentNum=#{num}
   </select>
 
+    <select id="getStudent" resultType="com.ResellBook.Pojo.Student" parameterType="java.lang.String" >
+    SELECT *
+    FROM
+    student
+    where
+    studentNum =#{num}
+  </select>
 
     <insert id="registerStudent" parameterType="com.ResellBook.Pojo.Student">
         insert into student(

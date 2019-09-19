@@ -1,17 +1,17 @@
 package com.ResellBook.Pojo;
 
 
-public class Order {
+public class Orders {
     private int orderID;
     private String sellerNum;
-    private int orederStatus;
+    private int orderStatus;
     private String bookID;
     private int reward;
     private String remark;
 
-    public Order( String sellerNum, int orederStatus, String bookID, int reward, String remark) {
+    public Orders(String sellerNum, int orederStatus, String bookID, int reward, String remark) {
         this.sellerNum = sellerNum;
-        this.orederStatus = orederStatus;
+        this.orderStatus = orederStatus;
         this.bookID = bookID;
         this.reward = reward;
         this.remark = remark;
@@ -19,6 +19,10 @@ public class Order {
 
     public int getOrderID() {
         return orderID;
+    }
+
+    public void setOrderID(int orderID) {
+        this.orderID = orderID;
     }
 
     public String getSellerNum() {
@@ -29,12 +33,12 @@ public class Order {
         this.sellerNum = sellerNum;
     }
 
-    public int getOrederStatus() {
-        return orederStatus;
+    public int getOrderStatus() {
+        return orderStatus;
     }
 
-    public void setOrederStatus(int orederStatus) {
-        this.orederStatus = orederStatus;
+    public void setOrderStatus(int orderStatus) {
+        this.orderStatus = orderStatus;
     }
 
     public String getBookID() {

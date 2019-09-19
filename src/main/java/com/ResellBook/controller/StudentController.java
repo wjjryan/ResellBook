@@ -1,10 +1,17 @@
 package com.ResellBook.controller;
 
+import com.ResellBook.Dao.BookDao;
+import com.ResellBook.Dao.OrderDao;
+import com.ResellBook.Dao.StudentDao;
+import com.ResellBook.Pojo.Book;
+import com.ResellBook.Pojo.Orders;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.ResellBook.Pojo.Student;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,8 +37,30 @@ public class StudentController {
         return returnMap;
     }
 
+    @ResponseBody
     @RequestMapping(value = "/login")
-    public void login(){}
+    public Map<String,Object> login(){
+        //模拟前端传输信息
+        String id="1";
+        String  pwd="123456";
+        Map<String,Object> returnMap = new HashMap<String, Object>();
+        returnMap = studentService.login(id,pwd);
+        System.out.println(returnMap);
+        return returnMap;
+    }
+
+    @Autowired
+    private StudentDao studentDao;
+    private OrderDao orderDao;
+    BookDao bookDao;
+    @ResponseBody
+    @RequestMapping(value = "/test")
+    public List<Book> test(){
+        List<Book> student = new ArrayList<>();
+        Book book=bookDao.getBook("9787115461025");
+        student.add(book);
+        return student;
+    }
 
     @RequestMapping(value = "/logout")
     public void logout(){}
