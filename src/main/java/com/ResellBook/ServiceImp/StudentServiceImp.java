@@ -17,9 +17,49 @@ import java.util.Map;
 public class StudentServiceImp implements StudentService {
     @Autowired
     private StudentDao studentDao;
-    private SendMessageService sendMessageService;
+
+    //获取学院及年级信息
+    @Override
+    public  Map<String,Object> getCollegeInfo(){
+        Message message = new Message();
+        Map<String,Object> returnMap = new HashMap();
+        List<String> college = studentDao.getCollege();
+        List<String> grade = studentDao.getGrade();
+        if(college != null && grade != null ){
+            message.setStateCode(200);
+            message.setMessage("获取学院信息成功");
+            returnMap.put("college",college);
+            returnMap.put("grade",grade);
+        }
+        else{
+            message.setStateCode(500);
+            message.setMessage("获取学院信息失败");
+        }
+        returnMap.put("message",message);
+        return  returnMap;
+    }
+
+    public Map<String,Object> getMajorByCollege(String college){
+        Message message = new Message();
+        Map<String,Object> returnMap = new HashMap();
+        List<String> major = studentDao.getMajor(college);
+        if(major != null ){
+            message.setStateCode(200);
+            message.setMessage("获取专业信息成功");
+            returnMap.put("major",major);
+        }
+        else{
+            message.setStateCode(500);
+            message.setMessage("获取专业信息失败");
+        }
+        returnMap.put("message",message);
+        return  returnMap;
+
+    }
 
     //学生注册
+    @Autowired
+    private SendMessageService sendMessageService;
     @Override
     public Map<String,Object> registerStudent(Student student) {
         Map<String, Object> returnMap = new HashMap();
@@ -47,12 +87,6 @@ public class StudentServiceImp implements StudentService {
         return returnMap;
     }
 
-    @Override
-    public List<Student> getStudentService (String num) {
-        List<Student> name = studentDao.getStudent(num);
-        return name;
-
-    }
     @Override
     public Map<String, Object> login(String num, String pwd) {
         Map<String, Object> returnMap = new HashMap();

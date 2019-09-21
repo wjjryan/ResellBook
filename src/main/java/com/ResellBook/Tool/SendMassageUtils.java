@@ -21,7 +21,7 @@ public class SendMassageUtils {
         //生成四位数的验证码
         String code = RandomStringUtils.randomNumeric(4);
         //短信的内容
-        String content = "你的验证码为" + code + ",在" + availablTime + "分钟内有效";
+        String content = "【华广书吧】你的验证码为" + code + ",在" + availablTime + "分钟内有效";
         //短信发送网站的接口
         String url = "http://api.smsbao.com/sms";
         //接口所需要的参数
@@ -65,7 +65,7 @@ public class SendMassageUtils {
             result = buffer.toString();
         }
         catch (Exception e){
-            e.printStackTrace();
+            System.out.println(e);
         }
         return result;
     }

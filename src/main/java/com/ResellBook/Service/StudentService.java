@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 public interface StudentService {
-     List<Student> getStudentService(String num);
+     Map<String,Object> getCollegeInfo();
+     Map<String,Object> getMajorByCollege(String college);
      Map<String, Object> login(String num, String pwd);
      Map<String, Object> registerStudent(Student student);
 }

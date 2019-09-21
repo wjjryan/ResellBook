@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.ResellBook.Dao.StudentDao" >
+    <select id="getCollege" resultType="java.lang.String">
+      select
+      distinct
+      ` college`
+      from
+      collegeInfo
+    </select>
+
+    <select id="getGrade" resultType="java.lang.String">
+      select
+      distinct
+      grade
+      from
+      collegeInfo
+    </select>
+
+    <select id="getMajor" resultType="java.lang.String" parameterType="java.lang.String">
+      select
+      distinct
+      major
+      from
+      collegeInfo
+      where ` college`=#{college}
+    </select>
 
     <select id="checkStudent" resultType="java.lang.String" parameterType="java.lang.String" >
     SELECT DISTINCT
@@ -18,6 +42,13 @@
     where
     studentNum =#{num}
   </select>
+    <select id="checkTel" resultType="java.lang.String" parameterType="java.lang.String">
+    SELECT
+    tel
+    from
+    student
+    where tel="18407678934"#{tel}
+    </select>
 
     <insert id="registerStudent" parameterType="com.ResellBook.Pojo.Student">
         insert into student(

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ResellBook.Dao.BookDao" >
+    <select id="getBookInfo" resultType="com.ResellBook.Pojo.Book" parameterType="java.lang.String">
+      SELECT *
+      from book
+      where bookID=#{bookID}
+    </select>
+
+    <select id="getSellerWanted" resultType="java.lang.String" parameterType="java.lang.String">
+      SELECT
+      bookName
+      from
+      wantedBook
+      where
+      studentNum=#{sellerNum}
+    </select>
+
+    <insert id="insertBuyerWanted">
+    insert into
+    wantedList(
+    listID,
+    buyerNum,
+    orderID)
+    value (
+    #{keyID},
+    #{buyerNum},
+    #{orderID})
+    </insert>
+
+    <select id="getBuyerWanted" resultType="com.ResellBook.Pojo.BuyerWantedBook" parameterType="java.lang.String">
+      SELECT
+      wantedList.orderID,
+      book.bookName,
+      prise,
+      reward,
+      orderStatus
+      FROM orders,book,wantedList
+      WHERE
+      wantedList.orderID = orders.orderID
+      AND
+      orders.bookID = book.bookID
+      AND
+      buyerNum = #{buyerNum}
+    </select>
+
+    <select id="getSellerName" resultType="java.lang.String" parameterType="java.lang.Integer">
+      select
+      studentName
+      from
+      orders,
+      student
+      where
+      sellerNum=studentNum
+      and
+      orderID=#{orderID}
+    </select>
+    <insert id="insertNews">
+      insert into
+      news(
+      newsID,
+      orderID,
+      buyerNum,
+      sellerNum,
+      newsStatus)
+      value(
+      #{newsID},
+      #{orderID},
+      #{buyerNum},
+      #{sellerNum},
+      #{newsStatus})
+    </insert>
+
+</mapper>

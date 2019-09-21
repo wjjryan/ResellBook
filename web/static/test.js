@@ -1,7 +1,7 @@
 var test = document.getElementById("test");
 test.onclick= function () {
     $.ajax({
-        url : '/test',
+        url : '/insertBuyerWantedBook',
         type :'GET',
         cache:false,
         dataType:'json',
